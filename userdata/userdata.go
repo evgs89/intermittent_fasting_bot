@@ -50,7 +50,8 @@ func NewUser(userId string, chatId string, tz string) *UserData {
 		LastActive:       time.Now().Unix(),
 		FastingStartedAt: 0,
 	}
-	_, err := DBCONN.Exec("INSERT INTO Users (UserId, Active, LastActive, ChatId, Timezone) VALUES (?, ?, ?, ?, ?)", user.UserId, user.Active, user.LastActive, user.ChatId, user.Timezone)
+	_, err := DBCONN.Exec("INSERT INTO Users (UserId, Active, LastActive, ChatId, Timezone) VALUES (?, ?, ?, ?, ?)",
+		user.UserId, user.Active, user.LastActive, user.ChatId, user.Timezone)
 	if err != nil {
 		log.Print(err)
 		return nil
